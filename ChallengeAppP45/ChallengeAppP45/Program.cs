@@ -1,31 +1,18 @@
 ﻿var number1 = 50;
 var number2 = 10;
 
-
-//OPERATORY PORÓWNANIA (RELACYJNE):
-// == - równy
-// != - różny
-// < - mniejszy
-// > - większy
-// <= - mniejszy lub równy
-// >= - wiekszy lub równy
-
-
 var name = "Przemek";
 var age = 44;
 
-
-bool isActive = true;
-if (!isActive)
+if (age > 60)
 {
-    Console.WriteLine("JESTEM PRZEMKIEM LUB MAM MNIEJ NIŻ 50.");
+    Console.WriteLine("JESTEM PRZEMKIEM MAM WIĘCEJ NIŻ 60 LAT.");
 }
-else
+else if (age > 50)
 {
-    Console.WriteLine("TERAZ JESTEM W LINI 10");
+    Console.WriteLine("50-60 latek");
 }
-
-//OPERATORY LOGICZNE:
-// && - i
-// || - lub
-// ! - negacja - sprawdza czy
+else if (age > 40)
+{
+    Console.WriteLine("40-50 latek");
+}
