@@ -1,25 +1,31 @@
-﻿// liczby całkowite
-int myAge = 120;
-int newAge = myAge + 5;
-int myVar = int.MinValue;
-uint myVar2 = uint.MaxValue;
-ulong myVar3 = ulong.MaxValue;
+﻿var number1 = 50;
+var number2 = 10;
 
-// liczby zmiennoprzecinkowe
-float myNumber = float.MaxValue;
-double myNumber2 = double.MaxValue;
-decimal myNumber3 = decimal.MaxValue;
 
-// zmienne tekstowe
-string name = "Przemek";
-string surname = "Kotłubaj";
-string result = name + surname + myAge;
-// Console.WriteLine(result);
-char myVar5 = 'c';
-var result2 = name.ToArray();
+//OPERATORY PORÓWNANIA (RELACYJNE):
+// == - równy
+// != - różny
+// < - mniejszy
+// > - większy
+// <= - mniejszy lub równy
+// >= - wiekszy lub równy
 
-// zmienna logiczna
-bool isActive = true; // zmienna bool, to są dwie wartości logiczne - true, false
-isActive = false;
-var isValid = 5 > 6;
-Console.WriteLine(isValid);
+
+var name = "Przemek";
+var age = 44;
+
+
+bool isActive = true;
+if (!isActive)
+{
+    Console.WriteLine("JESTEM PRZEMKIEM LUB MAM MNIEJ NIŻ 50.");
+}
+else
+{
+    Console.WriteLine("TERAZ JESTEM W LINI 10");
+}
+
+//OPERATORY LOGICZNE:
+// && - i
+// || - lub
+// ! - negacja - sprawdza czy
