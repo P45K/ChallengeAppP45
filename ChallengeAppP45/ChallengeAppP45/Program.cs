@@ -1,21 +1,22 @@
-﻿var number1 = 50;
-var number2 = 10;
+﻿// Dzień 4 - Zadanie Domowe
+var varName = "Gabriel";
+var varSex = 'M'; // M = male, F = female
+var varAge = 8;
 
-var name = "Przemek";
-var age = 54;
-
-if (age > 50)
+if (varSex == 'F' && varAge < 30)
 {
-    if(name == "EDEK") 
-    {
-        Console.WriteLine("JESTEM PRZEMKIEM PO 50.");
-    }
-    else 
-    {
-        Console.WriteLine("JESTEM EDEK Z KRAINY KREDEK I JESTEM PO 50.");
-    }
+    Console.WriteLine("Kobieta poniżej 30 lat");
+}
+
+else if (varName == "Ewa" && varAge == 30)
+{
+    Console.WriteLine("Ewa, lat 30");
+}
+else if (varSex == 'M' && varAge < 18)
+{
+    Console.WriteLine("Niepełnoletni mężczyzna");
 }
 else
 {
-    Console.WriteLine("JESTEM PRZEMEK I NA SZCZĘŚCIE NIE MAM JESZCZE 50");
+    // pusty blok else - nie zostały spełnione żadne warunki, dlatego program nie zwrócił komunikatu
 }
