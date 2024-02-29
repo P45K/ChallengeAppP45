@@ -2,17 +2,20 @@
 var number2 = 10;
 
 var name = "Przemek";
-var age = 44;
+var age = 54;
 
-if (age > 60)
+if (age > 50)
 {
-    Console.WriteLine("JESTEM PRZEMKIEM MAM WIĘCEJ NIŻ 60 LAT.");
+    if(name == "EDEK") 
+    {
+        Console.WriteLine("JESTEM PRZEMKIEM PO 50.");
+    }
+    else 
+    {
+        Console.WriteLine("JESTEM EDEK Z KRAINY KREDEK I JESTEM PO 50.");
+    }
 }
-else if (age > 50)
+else
 {
-    Console.WriteLine("50-60 latek");
-}
-else if (age > 40)
-{
-    Console.WriteLine("40-50 latek");
+    Console.WriteLine("JESTEM PRZEMEK I NA SZCZĘŚCIE NIE MAM JESZCZE 50");
 }
