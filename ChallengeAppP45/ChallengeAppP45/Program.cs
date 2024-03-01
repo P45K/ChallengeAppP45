@@ -1,9 +1,9 @@
-﻿// DZIEŃ 5 - LISTY
+﻿// DZIEŃ 5 - PĘTLA FOREACH
 
 int[] grades = new int[5];
 
-List<string> dayOfWeeks = new List<string>(7); // tworzenie listy o parametrze generycznym "<string>"(określa jakiego typu danych jest lista), nie trzeba określać wielkości listy "()", zwiększa się dynamicznie poprzez dodanie kolejnej funkcji "Add"
-dayOfWeeks.Add("poniedziałek"); // funkcja "Add" dodaje nowy element (wartość) do listy, operacja pozwalająca o rozszerzanie listy o nowe dane.
+List<string> dayOfWeeks = new List<string>();
+dayOfWeeks.Add("poniedziałek");
 dayOfWeeks.Add("wtorek");
 dayOfWeeks.Add("środa");
 dayOfWeeks.Add("czwartek");
@@ -12,7 +12,7 @@ dayOfWeeks.Add("sobota");
 dayOfWeeks.Add("niedziela");
 dayOfWeeks.Add("i po niedzieli");
 
-for(var i=0; i<dayOfWeeks.Count; i++) // gdzie "dayOfWeeks.Count" powoduje, że pętla wykona sie określoną ilość razy, ilośc razy określa wielkość listy.
+foreach (var day in dayOfWeeks) // tworzenie pętli "foreach" / zmienna "day" po każdym przejściu pętli, przejmie wartość kolejnego elementu z listy "dayOfWeeks".
 {
-    Console.WriteLine(dayOfWeeks[i]);
+    Console.WriteLine(day);
 }
