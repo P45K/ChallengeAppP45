@@ -1,17 +1,17 @@
-﻿// Dzień 4 - Zadanie Domowe
-var name = "Gabriel";
-var sex = 'M'; // M = male, F = female
-var age = 8;
+﻿// DZIEŃ 5 - [] TABLICE I ICH UŻYCIE
 
-if (sex == 'F' && age < 30)
-{
-    Console.WriteLine("Kobieta poniżej 30 lat");
-}
-else if (name == "Ewa" && age == 30)
-{
-    Console.WriteLine("Ewa, lat 30");
-}
-else if (sex == 'M' && age < 18)
-{
-    Console.WriteLine("Niepełnoletni mężczyzna");
-}
+int[] grades = new int[5]; // (eng)grades -> (pl)oceny / var grades = new int[5]; - też dobrze
+string[] dayOfWeeks = new string[7];
+dayOfWeeks[0] = "poniedziałek";
+dayOfWeeks[1] = "wtorek";
+dayOfWeeks[2] = "środa";
+dayOfWeeks[3] = "czwartek";
+dayOfWeeks[4] = "piątek";
+dayOfWeeks[5] = "sobota";
+dayOfWeeks[6] = "niedziela";
+Console.WriteLine(dayOfWeeks[2]);
+
+/* (inny sposób na to co powyżej)
+string[] dayOfWeeks2 = { "poniedziałek", "wtorek", "środa", "czwartek", "piątek", "sobota", "niedziela" };
+Console.WriteLine(dayOfWeeks2[0]);
+*/
