@@ -1,14 +1,18 @@
-﻿User user1 = new User();
-User user2 = new User();
-User user3 = new User();
-User user4 = new User();
+﻿User user1 = new User("Przemek");
+User user2 = new User("Gabriel");
+User user3 = new User("Julia");
+User user4 = new User("Wioleta");
 
-user1.login = "Przemek";        // przypisanie wartości do pól "login" i "password"
-user1.password = "password";
+
 
 class User
 {
-    public string login;        // publiczne pole w klasie typu (string) o nazwie "login"  - to zmienna, która jest dostępna i można ją modyfikować
-    public string password;
-    private string name;        // prywatne pole w klasie typu (string) o nazwie "name"  - to zmienna, która jest widoczna tylko wewnątrz klasy dla której została zadeklarowana, dzieki temu nie ma do niej dostępu i nie można jej modyfikować z zewnątrz
+    private string login;
+    private string password;
+    private string name;
+
+    public User(string login)               // tworzenie konstruktowa dla klasy "User", z parametrem "login", który jest typu (string)
+    {
+        this.login = login;
+    }
 }
