@@ -1,10 +1,14 @@
-﻿User user1 = new User(); // utworzenie obiekty klasu "User" o nazwie "user1" za pomocą operatora (new)
+﻿User user1 = new User();
 User user2 = new User();
 User user3 = new User();
 User user4 = new User();
 
-class User // zadeklarowanie klasy o nazwie "User"
+user1.login = "Przemek";        // przypisanie wartości do pól "login" i "password"
+user1.password = "password";
+
+class User
 {
-    string login;           // struktura klasy z polami typu (string) "login" i "password"
-    string password;            
+    public string login;        // publiczne pole w klasie typu (string) o nazwie "login"  - to zmienna, która jest dostępna i można ją modyfikować
+    public string password;
+    private string name;        // prywatne pole w klasie typu (string) o nazwie "name"  - to zmienna, która jest widoczna tylko wewnątrz klasy dla której została zadeklarowana, dzieki temu nie ma do niej dostępu i nie można jej modyfikować z zewnątrz
 }
