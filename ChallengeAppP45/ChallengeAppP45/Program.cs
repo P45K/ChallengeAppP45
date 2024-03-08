@@ -13,6 +13,6 @@ class User
         this.Password = password;
     }
 
-    public string Login { get; private set }     // propercja (property) - właściwości klasy, gdzie (get) zwraca wartość, a (set) ustawia wartość, w tym przypadku set jest dostępne tylko wewnatrz klasy 
-    public string Password { get; private set }
+    public string Login { get; private set; }     // propercja (property) - właściwości klasy, gdzie (get) zwraca wartość, a (set) ustawia wartość, w tym przypadku set jest dostępne tylko wewnatrz klasy 
+    public string Password { get; private set; }
 }
