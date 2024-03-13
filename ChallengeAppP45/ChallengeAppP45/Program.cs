@@ -5,6 +5,7 @@
     User user3 = new User("Julia", "67890");
     User user4 = new User("Wioleta", "09876");
 
-    user1.AddScore(5);
-    user1.AddScore(3);
-    user1.AddScore(7);
+    user1.AddPositivePoints(5);
+    user1.AddPositivePoints(3);
+    user1.AddPositivePoints(7);
+    user1.AddNegativePoints(-1);
