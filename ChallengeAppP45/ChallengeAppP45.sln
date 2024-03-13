@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34622.214
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChallengeAppP45", "ChallengeAppP45\ChallengeAppP45.csproj", "{7074BF68-568F-4F5B-BE6A-C56312DFA851}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChallengeAppP45", "ChallengeAppP45\ChallengeAppP45.csproj", "{7074BF68-568F-4F5B-BE6A-C56312DFA851}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChallengeAppP45.Tests", "ChallengeAppP45.Tests\ChallengeAppP45.Tests.csproj", "{D4558179-A6F4-4403-9ADA-8ECA6FC805A7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{7074BF68-568F-4F5B-BE6A-C56312DFA851}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7074BF68-568F-4F5B-BE6A-C56312DFA851}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7074BF68-568F-4F5B-BE6A-C56312DFA851}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4558179-A6F4-4403-9ADA-8ECA6FC805A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4558179-A6F4-4403-9ADA-8ECA6FC805A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4558179-A6F4-4403-9ADA-8ECA6FC805A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4558179-A6F4-4403-9ADA-8ECA6FC805A7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
