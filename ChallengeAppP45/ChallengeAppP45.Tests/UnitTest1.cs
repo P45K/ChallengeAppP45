@@ -1,19 +1,22 @@
+using System.Reflection.Metadata;
+
 namespace ChallengeAppP45.Tests
 {
     public class Tests
     {
         [Test]
-        public void WhenTwoNumbersAreAdded_ShouldReturnSum()
+        public void WhenUserCollectTwoSetOfPoints_ShoultReturnResult()
         {
             // arrange
-            int age1 = 10;
-            int age2 = 20;
+            var user = new User("Mietek", "12345");
+            user.AddScore(5);
+            user.AddScore(13);
 
             // act
-            int result = age1 + age2;
+            var result = user.Result;
 
             // assert
-            Assert.AreEqual(30, result);
+            Assert.AreEqual(18, result);
         }
     }
 }
