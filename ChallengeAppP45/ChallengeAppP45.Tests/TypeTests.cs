@@ -8,6 +8,7 @@
             // arrange
             int number1 = 1;    // int, double, float, byte, long, decimal, short to typy wartościowe
             int number2 = 2;
+            string number3 = "3";   // string jest typem referencyjnym, ale zachowuje się jak typ wartościowy
 
             // act
 

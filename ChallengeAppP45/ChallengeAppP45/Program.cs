@@ -10,6 +10,8 @@
     - w przypadku typów referencyjnych przechowujemy miejsce w pamięci(adres), gdzie nasz program wie, że tam ma przechowywać obiekt typu "Employee"
     - obydwa typy są przechowywane w uporządkowanej strukturze w pamięci, która nazywa się "STOSEM"
     - obiekt "Employee" przechowywany jest w "STERCIE" 
+    - najprostrzym sposobem na ropzpoznanie z jakim typem mamy do czynienia jest przejście do implementacji i tam jeżeli nie ma słówka "class", to znaczy, że mamy do czynienia z typem wartościowym
+    - STRING jest typem referencyjnym ale zachowuje się jak typ wartościowy
  */
 
 
