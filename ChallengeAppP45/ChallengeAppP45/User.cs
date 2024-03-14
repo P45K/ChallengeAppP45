@@ -7,10 +7,15 @@
         private List<int> score = new List<int>();
 
         //  KONSTRUKTOR
+
+        public User(int yob)
+        {
+            this.YearOfBirth = yob;
+        }
+
         public User(string login)
         {
             this.Login = login;
-            this.Password = "-";
         }
 
         public User(string login, string password)
@@ -19,9 +24,29 @@
             this.Password = password;
         }
 
+        public User(string login, string password, string name)
+        {
+            this.Login = login;
+            this.Password = password;
+            this.Name = name;
+        }
+
+        public User(string login, string password, string name, int yob)
+        {
+            this.Login = login;
+            this.Password = password;
+            this.Name = name;
+            this.YearOfBirth = yob;
+        }
+
         //  POLA - parametry opisuące nasz obiekt
+
         public string Login { get; private set; }   // propercja (property) - właściwości klasy, gdzie (get) zwraca wartość, a (set) ustawia wartość, w tym przypadku set jest dostępne tylko wewnątrz klasy 
         public string Password { get; private set; }
+
+        public string Name { get; private set; }
+
+        public int YearOfBirth { get; set; }
 
         public int Result
         {

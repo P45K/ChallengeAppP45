@@ -11,18 +11,24 @@
     - obydwa typy są przechowywane w uporządkowanej strukturze w pamięci, która nazywa się "STOSEM"
     - obiekt "Employee" przechowywany jest w "STERCIE" 
     - najprostrzym sposobem na ropzpoznanie z jakim typem mamy do czynienia jest przejście do implementacji i tam jeżeli nie ma słówka "class", to znaczy, że mamy do czynienia z typem wartościowym
-    - STRING jest typem referencyjnym ale zachowuje się jak typ wartościowy
+    - STRING jest typem referencyjnym ale zachowuje się jak typ wartościowy - jest hybrydą (immutable - niezmienny)
  */
 
 
 using ChallengeAppP45;
 
-    User user1 = new User("Przemek", "12345");
-    User user2 = new User("Gabriel", "54321");
-    User user3 = new User("Julia", "67890");
-    User user4 = new User("Wioleta", "09876");
+    User user1 = new User("Władziu", "567890", "Władysław");
+    User user2 = new User("Władek", "765432", "Władysław");
+    User user3 = new User("Tadziu", "67890", "Tadeusz", 1985);
+    User user4 = new User("Edziu", "09876", "Edward", 1980);
+    User user5 = new User("Radziu", "99988", "Radosław", 1979);
 
     user1.AddPositivePoints(5);
     user1.AddPositivePoints(3);
     user1.AddPositivePoints(7);
     user1.AddNegativePoints(-1);
+
+    user2.AddPositivePoints(5);
+    user2.AddPositivePoints(3);
+    user2.AddPositivePoints(7);
+    user2.AddNegativePoints(-1);
