@@ -1,23 +1,25 @@
 ﻿namespace ChallengeAppP45
 {
-    // KLASA
+    //(1)// KLASA
     public class Employee
     {
-        // LISTA
+        //(4)// LISTA
         private List<float> grades = new List<float>();
 
-        // KONSTRUKTOR
+        //(3)// KONSTRUKTOR
+        // KONSTRUKTOR - jest metodą specjalna w klasie, celem
         public Employee(string firstName, string lastName)
         {
             this.FirstName = firstName;
             this.LastName = lastName;
         }
 
-        // POLA
-        public string FirstName { get; set; }
+        //(2)// POLA
+        // POLa - czyli zmienne składowe klasy
+        public string FirstName { get; set; } // propercje (właściwości) - mechanizm umożliwiający kontrolowany dostęp do pól klasy poprzez specjalne metody, które są nazywane getterami i setterami.
         public string LastName { get; set; }
 
-        // METODA
+        //(5)// METODA
         public void Addgrade(float grade) 
         {
             this.grades.Add(grade);
@@ -30,7 +32,7 @@
             statistics.Max = float.MinValue; // inicjalizacja pola "Max" z wartością "float.MinValue" - najniższa możliwa wartość float (-3.40282347 × 10^38)
             statistics.Min = float.MaxValue; // inicjalizacja pola "Min" z wartością "float.MaxValue" - najwyższa możliwa wartość float (3.40282347 × 10^38)
 
-            foreach (var grade in this.grades) // pętla "foreach"  ma za zadanie wyłapać najwyższą i najniższą wartość, oraz średnią ocen 
+            foreach (var grade in this.grades) // pętla "foreach"  ma za zadanie wyłapać najwyższą i najniższą wartość, oraz średnią ocen, "this" odwołuje się do obiektu, w którym jesteśmy 
             {
                 statistics.Max = Math.Max(statistics.Max, grade); // metoda statyczna z klasy "Math" - pierwsza pobrana wartość z listy "grades" zostanie "Max'em",  następnię każda kolejna wyższa wartość zostanie "Max'em"
                 statistics.Min = Math.Min(statistics.Min, grade); // pierwsza pobrana wartośc zostanie przypisana jako minimalna, następnie każda kolejna mniejsza wartość zostanie zapisana jako "Min"
@@ -40,5 +42,7 @@
 
             return statistics;
         }
+
+
     }
 }
