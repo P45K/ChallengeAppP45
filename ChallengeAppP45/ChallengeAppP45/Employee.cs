@@ -8,19 +8,21 @@
 
         //(3)// KONSTRUKTOR
         // KONSTRUKTOR - jest metodą specjalna w klasie, celem
-        public Employee(string firstName, string lastName)
+        public Employee(string firstName, string lastName, int yearOfBirth)
         {
             this.FirstName = firstName;
             this.LastName = lastName;
+            this.YearOfBirth = yearOfBirth;
         }
 
         //(2)// POLA
-        // POLa - czyli zmienne składowe klasy
-        public string FirstName { get; set; } // propercje (właściwości) - mechanizm umożliwiający kontrolowany dostęp do pól klasy poprzez specjalne metody, które są nazywane getterami i setterami.
-        public string LastName { get; set; }
+        // POLA - czyli zmienne składowe klasy
+        public string FirstName { get; private set; } // propercje (właściwości) - mechanizm umożliwiający kontrolowany dostęp do pól klasy poprzez specjalne metody, które są nazywane getterami i setterami.
+        public string LastName { get; private set; }
+        public int YearOfBirth { get; private set; }
 
-        //(5)// METODA
-        public void Addgrade(float grade) 
+        //(5)// METODY
+        public void Addgrade(float grade)
         {
             this.grades.Add(grade);
         }
@@ -41,6 +43,11 @@
             statistics.Average /= this.grades.Count; // dzielenie przez sume wszystkich ocen (elementów) z listy "grades", dzięki temu otrzymamy średnią 
 
             return statistics;
+        }
+
+        public string GetEmployeeInfo()
+        {
+            return $"NAME: {FirstName}  SURNAME: {LastName}  YOB: {YearOfBirth}";
         }
     }
 }

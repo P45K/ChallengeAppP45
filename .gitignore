@@ -396,3 +396,7 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+/ChallengeAppP45/ChallengeAppP45/User.cs
+/ChallengeAppP45/ChallengeAppP45.Tests/TypeTests.cs
+/ChallengeAppP45/ChallengeAppP45.Tests/UnitTest1.cs
+/ChallengeAppP45/ChallengeAppP45.Tests/UserTest1.cs
