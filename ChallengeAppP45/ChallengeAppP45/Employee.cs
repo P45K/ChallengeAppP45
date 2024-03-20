@@ -90,7 +90,7 @@
 
             var index = 0;
 
-            while (index < this.grades.Count) ; // pętla "while" - poętla może się nie wykonać
+            while (index < this.grades.Count) // pętla "while" - poętla może się nie wykonać
             {
                 statistics.Max = Math.Max(statistics.Max, this.grades[index]);
                 statistics.Min = Math.Min(statistics.Min, this.grades[index]);
