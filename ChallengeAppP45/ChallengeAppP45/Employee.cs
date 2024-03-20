@@ -1,13 +1,14 @@
-﻿namespace ChallengeAppP45
+﻿using System.Threading.Channels;
+
+namespace ChallengeAppP45
 {
-    //(1)// KLASA
+    // Klasa (1)
     public class Employee
     {
-        //(4)// LISTA
+        // Lista 
         private List<float> grades = new List<float>();
 
-        //(3)// KONSTRUKTOR
-        // KONSTRUKTOR - jest metodą specjalna w klasie, celem
+        // Konstruktor (3)
         public Employee(string firstName, string lastName, int yearOfBirth)
         {
             this.FirstName = firstName;
@@ -15,31 +16,57 @@
             this.YearOfBirth = yearOfBirth;
         }
 
-        //(2)// POLA
-        // POLA - czyli zmienne składowe klasy
-        public string FirstName { get; private set; } // propercje (właściwości) - mechanizm umożliwiający kontrolowany dostęp do pól klasy poprzez specjalne metody, które są nazywane getterami i setterami.
+        // Właściwości (2)
+        public string FirstName { get; private set; }
         public string LastName { get; private set; }
         public int YearOfBirth { get; private set; }
 
-        //(5)// METODY
-
+        // Metody (4)
         public void AddGrade(float grade)
         {
-            // int ValueinInt = (int)grade; // rzutowanie (konwersja z float na int)
-
-            //int ValueinInt = (int)Math.Ceiling(grade); // zaokrągla w górę, np "double grade = 3.3", to wynik będzie 4
-            // int ValueInInt = (int)Math.Floor(grade); // zaokrągla w dół, np " double grade = 3.3", to wynik będzie 3
-
-            // float f = (float)ValueinInt; // w przypadku rzutowania z int do float nie tracimy danych, można zapisać również "float f = ValueInInt;"
-
-            if (grade >= 0 && grade <= 99.999f)
+            if (grade >= 0 && grade <= 100)
             {
                 this.grades.Add(grade);
             }
+            else if (grade < 0)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("ERROR! Value must be positive (min 0, max 100)!");
+                Console.ResetColor();
+            }
             else
             {
-                Console.WriteLine("Invalid grade value!");
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("ERROR! Value has ben exceeded (min 0, max 100)!");
+                Console.ResetColor();
             }
+        }
+
+        public void AddGrade(int grade)
+        {
+            float gradeInInt = (float)grade;
+            this.AddGrade(gradeInInt);
+            //Console.WriteLine(gradeInInt);
+        }
+
+        public void AddGrade(long grade) // druga metoda o tej samej nazwie "AddGrade" ale z innym parametrem
+        {
+            float gradeInLong = (float)grade;
+            this.AddGrade(gradeInLong);
+            //Console.WriteLine(gradeInLong);
+        }
+
+        public void AddGrade(double grade)
+        {
+            float gradeInDouble = (float)Math.Ceiling(grade); // "Math.Ceiling" zaokrąglanie w górę
+            this.AddGrade(gradeInDouble);
+            //Console.WriteLine(gradeInDouble);
+        }
+
+        public void AddGrade(decimal grade) 
+        {
+            float gradeInDecimal = (float)grade;
+            this.AddGrade(gradeInDecimal);
         }
 
         public void AddGrade(string grade)
@@ -50,24 +77,26 @@
             }
             else
             {
-                Console.WriteLine("String is not float");
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("ERROR! Value must be a number (min 0, max 100)!");
+                Console.ResetColor();
             }
         }
 
         public Statistics GetStatistics()
         {
-            var statistics = new Statistics(); // tworzenie zmiennej, nowej instancji obiektu klasy "Statistics"
-            statistics.Average = 0; // inicjalizacja pola "Average" z domyślną wartością "0"
-            statistics.Max = float.MinValue; // inicjalizacja pola "Max" z wartością "float.MinValue" - najniższa możliwa wartość float (-3.40282347 × 10^38)
-            statistics.Min = float.MaxValue; // inicjalizacja pola "Min" z wartością "float.MaxValue" - najwyższa możliwa wartość float (3.40282347 × 10^38)
+            var statistics = new Statistics();
+            statistics.Average = 0;
+            statistics.Max = float.MinValue;
+            statistics.Min = float.MaxValue;
 
-            foreach (var grade in this.grades) // pętla "foreach"  ma za zadanie wyłapać najwyższą i najniższą wartość, oraz średnią ocen, "this" odwołuje się do obiektu, w którym jesteśmy 
+            foreach (var grade in this.grades)
             {
-                statistics.Max = Math.Max(statistics.Max, grade); // metoda statyczna z klasy "Math" - pierwsza pobrana wartość z listy "grades" zostanie "Max'em",  następnię każda kolejna wyższa wartość zostanie "Max'em"
-                statistics.Min = Math.Min(statistics.Min, grade); // pierwsza pobrana wartośc zostanie przypisana jako minimalna, następnie każda kolejna mniejsza wartość zostanie zapisana jako "Min"
-                statistics.Average += grade; // zsumowanie wszystkich ocen
+                statistics.Max = Math.Max(statistics.Max, grade);
+                statistics.Min = Math.Min(statistics.Min, grade);
+                statistics.Average += grade;
             }
-            statistics.Average /= this.grades.Count; // dzielenie przez sume wszystkich ocen (elementów) z listy "grades", dzięki temu otrzymamy średnią 
+            statistics.Average /= this.grades.Count;
 
             return statistics;
         }

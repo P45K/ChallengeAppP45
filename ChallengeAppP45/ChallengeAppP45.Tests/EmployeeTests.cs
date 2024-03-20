@@ -7,11 +7,11 @@
         {
             // arrange - przygotowanie danych
             var employee = new Employee("Motoko", "Kusanagi", 1995);
-            employee.Addgrade(7);
-            employee.Addgrade(8);
-            employee.Addgrade(9);
-            employee.Addgrade(10);
-            employee.Addgrade(10);
+            employee.AddGrade(7);
+            employee.AddGrade(8);
+            employee.AddGrade(9);
+            employee.AddGrade(10);
+            employee.AddGrade(10);
 
             // act - wywołanie metody
             var statistics = employee.GetStatistics();
@@ -24,11 +24,11 @@
         public void WhenEmployeeGetSetOfGradesTheMinMethodShouldReturnHighestGrade() 
         {
             var employee = new Employee("Batou", "Cyborg", 1988);
-            employee.Addgrade(8);
-            employee.Addgrade(8);
-            employee.Addgrade(7);
-            employee.Addgrade(8);
-            employee.Addgrade(10);
+            employee.AddGrade(8);
+            employee.AddGrade(8);
+            employee.AddGrade(7);
+            employee.AddGrade(8);
+            employee.AddGrade(10);
 
             var statistics = employee.GetStatistics();
 
@@ -39,11 +39,11 @@
         public void WhenEmployeeGetSetOfGradesTheAverageMethodShouldReturnCorrectAverageGrade() 
         {
             var employee = new Employee("Togusa", "Gits", 2002);
-            employee.Addgrade(7);
-            employee.Addgrade(8);
-            employee.Addgrade(7);
-            employee.Addgrade(9);
-            employee.Addgrade(10);
+            employee.AddGrade(7);
+            employee.AddGrade(8);
+            employee.AddGrade(7);
+            employee.AddGrade(9);
+            employee.AddGrade(10);
 
             var statistics = employee.GetStatistics();
 
