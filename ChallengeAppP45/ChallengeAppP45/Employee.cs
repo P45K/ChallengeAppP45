@@ -90,8 +90,15 @@
 
             var index = 0;
 
-            while (index < this.grades.Count) // pętla "while" - poętla może się nie wykonać
+            while (index < this.grades.Count)
             {
+                //if (this.grades[index] == 5) // instruykcja "break" spowoduje natychmiastowe wyjście z pętli kiedy warunek zostanie spełniony
+                //{
+                //    break;
+                //}
+
+                break; // w tym przypadku instrukcja "break" spowoduje, że pętla nigdy sie nie wykona
+
                 statistics.Max = Math.Max(statistics.Max, this.grades[index]);
                 statistics.Min = Math.Min(statistics.Min, this.grades[index]);
                 statistics.Average += this.grades[index];
