@@ -3,7 +3,7 @@
     public class EmployeeTests
     {
         [Test]
-        public void WhenEmployeeGetSetOfGradesTheMinMethodShouldReturnLowestGrade() 
+        public void WhenEmployeeGetSetOfGradesTheMinMethodShouldReturnLowestGrade()
         {
             // arrange - przygotowanie danych
             var employee = new Employee("Motoko", "Kusanagi", 1995);
@@ -21,7 +21,7 @@
         }
 
         [Test]
-        public void WhenEmployeeGetSetOfGradesTheMinMethodShouldReturnHighestGrade() 
+        public void WhenEmployeeGetSetOfGradesTheMinMethodShouldReturnHighestGrade()
         {
             var employee = new Employee("Batou", "Cyborg", 1988);
             employee.AddGrade(8);
@@ -36,7 +36,7 @@
         }
 
         [Test]
-        public void WhenEmployeeGetSetOfGradesTheAverageMethodShouldReturnCorrectAverageGrade() 
+        public void WhenEmployeeGetSetOfGradesTheAverageMethodShouldReturnCorrectAverageGrade()
         {
             var employee = new Employee("Togusa", "Gits", 2002);
             employee.AddGrade(7);

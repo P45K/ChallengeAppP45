@@ -1,6 +1,4 @@
-﻿using System.Threading.Channels;
-
-namespace ChallengeAppP45
+﻿namespace ChallengeAppP45
 {
     // Klasa (1)
     public class Employee
@@ -63,7 +61,7 @@ namespace ChallengeAppP45
             //Console.WriteLine(gradeInDouble);
         }
 
-        public void AddGrade(decimal grade) 
+        public void AddGrade(decimal grade)
         {
             float gradeInDecimal = (float)grade;
             this.AddGrade(gradeInDecimal);
@@ -89,15 +87,18 @@ namespace ChallengeAppP45
             statistics.Average = 0;
             statistics.Max = float.MinValue;
             statistics.Min = float.MaxValue;
+            var index = 0;
 
-            foreach (var grade in this.grades)
+            do // pętla "do while" - poętla wykona sie przynajmniej jeden raz
             {
-                statistics.Max = Math.Max(statistics.Max, grade);
-                statistics.Min = Math.Min(statistics.Min, grade);
-                statistics.Average += grade;
+                statistics.Max = Math.Max(statistics.Max, this.grades[index]);
+                statistics.Min = Math.Min(statistics.Min, this.grades[index]);
+                statistics.Average += this.grades[index];
+                index++;
             }
-            statistics.Average /= this.grades.Count;
+            while (index < this.grades.Count);
 
+            statistics.Average /= this.grades.Count;
             return statistics;
         }
     }
