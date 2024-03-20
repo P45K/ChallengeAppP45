@@ -92,25 +92,22 @@
 
             foreach (var grade in this.grades)
             {
-                if (grade < 0)
+                // instrukcja skoku "goto" jest niezalecana - będą się z ciebie śmiać :D
+
+                if (grade == 11) 
                 {
-                    continue; // "continue" spowoduje, że jeśli napotkamy wartość mniejszą od zera, to wskoczy continue i dalsza część pętli nie zostanie wykonana
+                    goto here;
                 }
 
-                statistics.Max = Math.Max(statistics.Max, grade);
-                statistics.Min = Math.Min(statistics.Min, grade);
-                statistics.Average += grade;
-
-                /*
-                if (grade >= 0) // Dokładnie to samo co od wiersza 95 do 102
+                if (grade >= 0)
                 {
                     statistics.Max = Math.Max(statistics.Max, grade);
                     statistics.Min = Math.Min(statistics.Min, grade);
                     statistics.Average += grade;
                 }
-                */
             }
 
+        here: // instrukcja goto skoczy w to miejsce
             statistics.Average /= this.grades.Count;
             return statistics;
         }
