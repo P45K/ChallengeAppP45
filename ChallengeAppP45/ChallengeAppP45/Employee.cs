@@ -22,22 +22,36 @@
         public int YearOfBirth { get; private set; }
 
         //(5)// METODY
+
         public void AddGrade(float grade)
         {
-            if (grade >= 0 && grade <= 100) 
-            { 
+            // int ValueinInt = (int)grade; // rzutowanie (konwersja z float na int)
+
+            //int ValueinInt = (int)Math.Ceiling(grade); // zaokrągla w górę, np "double grade = 3.3", to wynik będzie 4
+            // int ValueInInt = (int)Math.Floor(grade); // zaokrągla w dół, np " double grade = 3.3", to wynik będzie 3
+
+            // float f = (float)ValueinInt; // w przypadku rzutowania z int do float nie tracimy danych, można zapisać również "float f = ValueInInt;"
+
+            if (grade >= 0 && grade <= 99.999f)
+            {
                 this.grades.Add(grade);
             }
-            else 
+            else
             {
                 Console.WriteLine("Invalid grade value!");
             }
         }
 
-        public void AddGrade(string grade) // druga metoda z tą samą nazwą "AddGrade" ale z innym parametrem
+        public void AddGrade(string grade)
         {
-            var value = float.Parse(grade);
-            this.AddGrade(value);
+            if (float.TryParse(grade, out float result))
+            {
+                this.AddGrade(result);
+            }
+            else
+            {
+                Console.WriteLine("String is not float");
+            }
         }
 
         public Statistics GetStatistics()
@@ -56,11 +70,6 @@
             statistics.Average /= this.grades.Count; // dzielenie przez sume wszystkich ocen (elementów) z listy "grades", dzięki temu otrzymamy średnią 
 
             return statistics;
-        }
-
-        public string GetEmployeeInfo()
-        {
-            return $"NAME: {FirstName}  SURNAME: {LastName}  YOB: {YearOfBirth}";
         }
     }
 }
