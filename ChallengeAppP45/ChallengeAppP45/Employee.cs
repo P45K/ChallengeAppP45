@@ -90,19 +90,25 @@
 
             var index = 0;
 
-            while (index < this.grades.Count)
+            foreach (var grade in this.grades)
             {
-                //if (this.grades[index] == 5) // instruykcja "break" spowoduje natychmiastowe wyjście z pętli kiedy warunek zostanie spełniony
-                //{
-                //    break;
-                //}
+                if (grade < 0)
+                {
+                    continue; // "continue" spowoduje, że jeśli napotkamy wartość mniejszą od zera, to wskoczy continue i dalsza część pętli nie zostanie wykonana
+                }
 
-                break; // w tym przypadku instrukcja "break" spowoduje, że pętla nigdy sie nie wykona
+                statistics.Max = Math.Max(statistics.Max, grade);
+                statistics.Min = Math.Min(statistics.Min, grade);
+                statistics.Average += grade;
 
-                statistics.Max = Math.Max(statistics.Max, this.grades[index]);
-                statistics.Min = Math.Min(statistics.Min, this.grades[index]);
-                statistics.Average += this.grades[index];
-                index++;
+                /*
+                if (grade >= 0) // Dokładnie to samo co od wiersza 95 do 102
+                {
+                    statistics.Max = Math.Max(statistics.Max, grade);
+                    statistics.Min = Math.Min(statistics.Min, grade);
+                    statistics.Average += grade;
+                }
+                */
             }
 
             statistics.Average /= this.grades.Count;
