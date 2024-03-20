@@ -22,16 +22,22 @@
         public int YearOfBirth { get; private set; }
 
         //(5)// METODY
-        public void Addgrade(float grade)
+        public void AddGrade(float grade)
         {
             if (grade >= 0 && grade <= 100) 
             { 
-             this.grades.Add(grade);
+                this.grades.Add(grade);
             }
             else 
             {
                 Console.WriteLine("Invalid grade value!");
             }
+        }
+
+        public void AddGrade(string grade) // druga metoda z tą samą nazwą "AddGrade" ale z innym parametrem
+        {
+            var value = float.Parse(grade);
+            this.AddGrade(value);
         }
 
         public Statistics GetStatistics()
