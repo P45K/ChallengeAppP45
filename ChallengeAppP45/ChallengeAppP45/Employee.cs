@@ -87,16 +87,16 @@
             statistics.Average = 0;
             statistics.Max = float.MinValue;
             statistics.Min = float.MaxValue;
+
             var index = 0;
 
-            do // pętla "do while" - poętla wykona sie przynajmniej jeden raz
+            while (index < this.grades.Count) ; // pętla "while" - poętla może się nie wykonać
             {
                 statistics.Max = Math.Max(statistics.Max, this.grades[index]);
                 statistics.Min = Math.Min(statistics.Min, this.grades[index]);
                 statistics.Average += this.grades[index];
                 index++;
             }
-            while (index < this.grades.Count);
 
             statistics.Average /= this.grades.Count;
             return statistics;
