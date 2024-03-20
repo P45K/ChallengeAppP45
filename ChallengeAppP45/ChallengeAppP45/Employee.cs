@@ -81,7 +81,47 @@
             }
         }
 
-        public Statistics GetStatistics()
+        // staty z pętlą "foreach"
+        public Statistics GetStatsForEach()
+        {
+            var statistics = new Statistics();
+            statistics.Average = 0;
+            statistics.Max = float.MinValue;
+            statistics.Min = float.MaxValue;
+
+
+            foreach (var grade in this.grades)
+            {
+                statistics.Max = Math.Max(statistics.Max, grade);
+                statistics.Min = Math.Min(statistics.Min, grade);
+                statistics.Average += grade;
+            }
+
+            statistics.Average /= this.grades.Count;
+            return statistics;
+        }
+
+        // staty z pętlą "for"
+        public Statistics GetStatsFor()
+        {
+            var statistics = new Statistics();
+            statistics.Average = 0;
+            statistics.Max = float.MinValue;
+            statistics.Min = float.MaxValue;
+
+            for (var index = 0; this.grades.Count > index; index++)
+            {
+                statistics.Max = Math.Max(statistics.Max, this.grades[index]);
+                statistics.Min = Math.Min(statistics.Min, this.grades[index]);
+                statistics.Average += this.grades[index];
+            }
+
+            statistics.Average /= this.grades.Count;
+            return statistics;
+        }
+
+        // staty z pętlą "while"
+        public Statistics GetStatsWhile()
         {
             var statistics = new Statistics();
             statistics.Average = 0;
@@ -90,24 +130,35 @@
 
             var index = 0;
 
-            foreach (var grade in this.grades)
+            while (index < this.grades.Count)
             {
-                // instrukcja skoku "goto" jest niezalecana - będą się z ciebie śmiać :D
-
-                if (grade == 11) 
-                {
-                    goto here;
-                }
-
-                if (grade >= 0)
-                {
-                    statistics.Max = Math.Max(statistics.Max, grade);
-                    statistics.Min = Math.Min(statistics.Min, grade);
-                    statistics.Average += grade;
-                }
+                statistics.Max = Math.Max(statistics.Max, this.grades[index]);
+                statistics.Min = Math.Min(statistics.Min, this.grades[index]);
+                statistics.Average += this.grades[index];
+                index++;
             }
+            statistics.Average /= this.grades.Count;
+            return statistics;
+        }
 
-        here: // instrukcja goto skoczy w to miejsce
+        // staty z pętlą "do while"
+        public Statistics GetStatsDoWhile()
+        {
+            var statistics = new Statistics();
+            statistics.Average = 0;
+            statistics.Max = float.MinValue;
+            statistics.Min = float.MaxValue;
+
+            var index = 0;
+
+            do
+            {
+                statistics.Max = Math.Max(statistics.Max, this.grades[index]);
+                statistics.Min = Math.Min(statistics.Min, this.grades[index]);
+                statistics.Average += this.grades[index];
+                index++;
+            } while (index < this.grades.Count);
+
             statistics.Average /= this.grades.Count;
             return statistics;
         }

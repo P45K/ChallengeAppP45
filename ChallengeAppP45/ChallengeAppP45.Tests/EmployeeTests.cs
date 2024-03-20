@@ -14,7 +14,7 @@
             employee.AddGrade(10);
 
             // act - wywołanie metody
-            var statistics = employee.GetStatistics();
+            var statistics = employee.GetStatsForEach();
 
             // assert - sprawdzanie wyniku
             Assert.AreEqual(7, statistics.Min);
@@ -30,7 +30,7 @@
             employee.AddGrade(8);
             employee.AddGrade(10);
 
-            var statistics = employee.GetStatistics();
+            var statistics = employee.GetStatsForEach();
 
             Assert.AreEqual(10, statistics.Max);
         }
@@ -45,7 +45,7 @@
             employee.AddGrade(9);
             employee.AddGrade(10);
 
-            var statistics = employee.GetStatistics();
+            var statistics = employee.GetStatsForEach();
 
             Assert.AreEqual(8.20, Math.Round(statistics.Average, 2));
         }
