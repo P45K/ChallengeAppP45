@@ -47,6 +47,63 @@
             //Console.WriteLine(gradeInInt);
         }
 
+        public void AddGrade(char grade) 
+        {
+            // poniższy zakomentowany fragment kodu wykonuje dokładnie to samo, co sposób z instrukcją sterującą "switch" (od wiersza 76 do 97)
+            /*
+            if (grade == 'A' || grade == 'a')
+            {
+                this.grades.Add(100);
+            }
+            else if (grade == 'B' || grade == 'b')
+            {
+                this.grades.Add(80);
+            }
+            else if (grade == 'C' || grade == 'c')
+            {
+                this.grades.Add(60);
+            }
+            else if (grade == 'D' || grade == 'd')
+            {
+                this.grades.Add(40);
+            }
+            else if (grade == 'E' || grade == 'e')
+            {
+                this.grades.Add(20);
+            }
+            */
+
+            switch (grade) 
+            {
+                case 'A':
+                case 'a':
+                    this.grades.Add(100);
+                    break;
+                case 'B':
+                case 'b':
+                    this.grades.Add(80);
+                    break;
+                case 'C':
+                case 'c':
+                    this.grades.Add(60);
+                    break;
+                case 'D':
+                case 'd':
+                    this.grades.Add(40);
+                    break;
+                case 'E':
+                case 'e':
+                    this.grades.Add(20);
+                    break;
+                default:
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("ERROR! Incorrect parameter");
+                    Console.ResetColor();
+                    // this.grades.Add(0);
+                    break;
+            }
+        }
+
         public void AddGrade(long grade) // druga metoda o tej samej nazwie "AddGrade" ale z innym parametrem
         {
             float gradeInLong = (float)grade;
@@ -81,7 +138,6 @@
             }
         }
 
-        // staty z pętlą "foreach"
         public Statistics GetStatsForEach()
         {
             var statistics = new Statistics();
@@ -96,68 +152,6 @@
                 statistics.Min = Math.Min(statistics.Min, grade);
                 statistics.Average += grade;
             }
-
-            statistics.Average /= this.grades.Count;
-            return statistics;
-        }
-
-        // staty z pętlą "for"
-        public Statistics GetStatsFor()
-        {
-            var statistics = new Statistics();
-            statistics.Average = 0;
-            statistics.Max = float.MinValue;
-            statistics.Min = float.MaxValue;
-
-            for (var index = 0; this.grades.Count > index; index++)
-            {
-                statistics.Max = Math.Max(statistics.Max, this.grades[index]);
-                statistics.Min = Math.Min(statistics.Min, this.grades[index]);
-                statistics.Average += this.grades[index];
-            }
-
-            statistics.Average /= this.grades.Count;
-            return statistics;
-        }
-
-        // staty z pętlą "while"
-        public Statistics GetStatsWhile()
-        {
-            var statistics = new Statistics();
-            statistics.Average = 0;
-            statistics.Max = float.MinValue;
-            statistics.Min = float.MaxValue;
-
-            var index = 0;
-
-            while (index < this.grades.Count)
-            {
-                statistics.Max = Math.Max(statistics.Max, this.grades[index]);
-                statistics.Min = Math.Min(statistics.Min, this.grades[index]);
-                statistics.Average += this.grades[index];
-                index++;
-            }
-            statistics.Average /= this.grades.Count;
-            return statistics;
-        }
-
-        // staty z pętlą "do while"
-        public Statistics GetStatsDoWhile()
-        {
-            var statistics = new Statistics();
-            statistics.Average = 0;
-            statistics.Max = float.MinValue;
-            statistics.Min = float.MaxValue;
-
-            var index = 0;
-
-            do
-            {
-                statistics.Max = Math.Max(statistics.Max, this.grades[index]);
-                statistics.Min = Math.Min(statistics.Min, this.grades[index]);
-                statistics.Average += this.grades[index];
-                index++;
-            } while (index < this.grades.Count);
 
             statistics.Average /= this.grades.Count;
             return statistics;
