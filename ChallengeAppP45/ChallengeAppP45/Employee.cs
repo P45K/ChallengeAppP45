@@ -7,6 +7,13 @@
         private List<float> grades = new List<float>();
 
         // Konstruktor (3)
+        public Employee()
+        {
+            this.FirstName = "-";
+            this.LastName = "-";
+            this.YearOfBirth = 0;
+        }
+
         public Employee(string firstName, string lastName, int yearOfBirth)
         {
             this.FirstName = firstName;
@@ -123,12 +130,15 @@
 
             foreach (var grade in this.grades)
             {
-                statistics.Max = Math.Max(statistics.Max, grade);
-                statistics.Min = Math.Min(statistics.Min, grade);
-                statistics.Average += grade;
+                if (grade >= 0)
+                {
+                    statistics.Max = Math.Max(statistics.Max, grade);
+                    statistics.Min = Math.Min(statistics.Min, grade);
+                    statistics.Average += grade;
+                }
             }
 
-            // statistics.Average /= this.grades.Count;
+            statistics.Average /= this.grades.Count;
 
             switch (statistics.Average)
             {
@@ -145,7 +155,7 @@
                     statistics.AverageLetter = 'D';
                     break;
                 default:
-                    statistics.Average = 'E';
+                    statistics.AverageLetter = 'E';
                     break;
             }
 
