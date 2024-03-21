@@ -1,15 +1,15 @@
 ﻿using ChallengeAppP45;
 
-Console.WriteLine("Witaj w programie do oceny pracowników");
-Console.WriteLine("======================================");
+Console.WriteLine();
+Console.WriteLine(" SECTION 9 - Employee Evaluation Program");
+Console.WriteLine(" ---------------------------------------");
 Console.WriteLine();
 
-// var employee = new Employee("Motoko", "Kusanagi", 1995);
-var employee = new Employee();
+var employee = new Employee("Motoko", "Kusanagi", 1995);
 
 while (true)
 {
-    Console.WriteLine("Podaj kolejną ocenę pracownika: ");
+    Console.Write($" Assign additional points to the employee: {employee.FirstName} {employee.LastName}: ");
     var input = Console.ReadLine();
     if (input == "q")
     {
@@ -20,5 +20,8 @@ while (true)
 
 var statistics = employee.GetStats();
 Console.WriteLine();
-Console.WriteLine($"Średnia ocena pracownika: [ {statistics.Average} ]   Klasa pracownika: [ {statistics.AverageLetter} ]");
-Console.WriteLine($"Ocena najwyższa: [ {statistics.Max} ]   Ocena najniższa: [ {statistics.Min} ]");
+Console.WriteLine(" ---------------------------------");
+Console.WriteLine($" Statistics for: {employee.FirstName} {employee.LastName}");
+Console.WriteLine(" ---------------------------------");
+Console.WriteLine($" Average employee rating: [ {statistics.Average:N2} ]   Employee class: [ {statistics.AverageLetter} ]");
+Console.WriteLine($" Highest rating: [ {statistics.Max} ]   Lowest rating: [ {statistics.Min} ]");

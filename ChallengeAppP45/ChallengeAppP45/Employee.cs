@@ -11,7 +11,6 @@
         {
             this.FirstName = "-";
             this.LastName = "-";
-            this.YearOfBirth = 0;
         }
 
         public Employee(string firstName, string lastName, int yearOfBirth)
@@ -36,13 +35,13 @@
             else if (grade < 0)
             {
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("ERROR! Value must be positive (min 0, max 100)!");
+                Console.WriteLine(" ERROR! Value must be positive (min 0, max 100)!");
                 Console.ResetColor();
             }
             else
             {
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("ERROR! Value has ben exceeded (min 0, max 100)!");
+                Console.WriteLine(" ERROR! Value has ben exceeded (min 0, max 100)!");
                 Console.ResetColor();
             }
         }
@@ -80,7 +79,7 @@
                     break;
                 default:
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("ERROR! Invalid parameter!");
+                    Console.WriteLine(" ERROR! Invalid parameter!");
                     Console.ResetColor();
                     break;
             }
@@ -112,10 +111,14 @@
             {
                 this.AddGrade(result);
             }
+            else if (char.TryParse(grade, out char resultChar))
+            {
+                this.AddGrade(resultChar);
+            }
             else
             {
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("ERROR! Value must be a number (min 0, max 100)!");
+                Console.WriteLine(" ERROR! Value must be a number (min 0, max 100)!");
                 Console.ResetColor();
             }
         }
