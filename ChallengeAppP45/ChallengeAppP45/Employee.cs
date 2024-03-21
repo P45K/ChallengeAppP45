@@ -47,33 +47,9 @@
             //Console.WriteLine(gradeInInt);
         }
 
-        public void AddGrade(char grade) 
+        public void AddGrade(char grade)
         {
-            // poniższy zakomentowany fragment kodu wykonuje dokładnie to samo, co sposób z instrukcją sterującą "switch" (od wiersza 76 do 97)
-            /*
-            if (grade == 'A' || grade == 'a')
-            {
-                this.grades.Add(100);
-            }
-            else if (grade == 'B' || grade == 'b')
-            {
-                this.grades.Add(80);
-            }
-            else if (grade == 'C' || grade == 'c')
-            {
-                this.grades.Add(60);
-            }
-            else if (grade == 'D' || grade == 'd')
-            {
-                this.grades.Add(40);
-            }
-            else if (grade == 'E' || grade == 'e')
-            {
-                this.grades.Add(20);
-            }
-            */
-
-            switch (grade) 
+            switch (grade)
             {
                 case 'A':
                 case 'a':
@@ -97,9 +73,8 @@
                     break;
                 default:
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("ERROR! Incorrect parameter");
+                    Console.WriteLine("ERROR! Invalid parameter!");
                     Console.ResetColor();
-                    // this.grades.Add(0);
                     break;
             }
         }
@@ -138,7 +113,7 @@
             }
         }
 
-        public Statistics GetStatsForEach()
+        public Statistics GetStats()
         {
             var statistics = new Statistics();
             statistics.Average = 0;
@@ -153,7 +128,27 @@
                 statistics.Average += grade;
             }
 
-            statistics.Average /= this.grades.Count;
+            // statistics.Average /= this.grades.Count;
+
+            switch (statistics.Average)
+            {
+                case var average when average >= 80:
+                    statistics.AverageLetter = 'A';
+                    break;
+                case var average when average >= 60:
+                    statistics.AverageLetter = 'B';
+                    break;
+                case var average when average >= 40:
+                    statistics.AverageLetter = 'C';
+                    break;
+                case var average when average >= 20:
+                    statistics.AverageLetter = 'D';
+                    break;
+                default:
+                    statistics.Average = 'E';
+                    break;
+            }
+
             return statistics;
         }
     }
